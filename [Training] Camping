@@ -1,0 +1,21 @@
+# Name: AFK Camping Training
+# Sviluppatore: GeckoCode
+# Discord: NotGecko#4839
+# Server: UO Outlands
+# Versione: 1.0
+# Requisiti: Kindling
+
+if skill 'Camping' < 100 
+  if not findtype "kindling" backpack
+      overhead "Materiale insufficiente!" 34
+      wait 5000
+      replay 
+  elseif not findtype "campfire" true
+      dclicktype "kindling" backpack
+      wait 2000
+  endif
+else 
+  overhead "Camping è completa!" 20  
+endif
+
+loop
