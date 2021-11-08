@@ -1,0 +1,52 @@
+# Name: AFK Ban Bot
+# Sviluppatore: GeckoCode
+# Discord: NotGecko#4839
+# Server: UO Outlands
+# Versione: 1.0
+# Requisiti: Nessuno
+
+while not dead
+    if not timerexists "RilevaIntrusi"
+        createtimer "RilevaIntrusi"
+    endif
+
+    if timer "RilevaIntrusi" > 10100
+        hotkey 'Cancel Current Target'
+        skill 'DetectingHidden'
+        waitfortarget 5000
+        target 'self'
+        settimer "RilevaIntrusi" 0
+    endif
+    
+    unsetvar 'lastserial'
+    @hotkey 'Next Humanoid Target'
+    pause 350    
+    @setvar! 'lastserial' lasttarget
+    getlabel 'lastserial' 'seriallabel'
+    
+    if not insysmsg "No one matching that was found"
+        if noto 'lastserial' = friend    
+            # overhead "Sei un amico puoi entrare!" 50
+            continue
+        endif
+        
+        ## Lista delle gilde da escludere ##
+        
+        if ", [-_-]" in 'seriallabel'
+            overhead "Sei un -_- puoi entrare!" 50
+            continue
+        elseif ", [LvX]" in 'seriallabel'
+            overhead "Sei un LvX puoi entrare!" 50
+            continue
+        endif
+  
+        hotkey 'Cancel Current Target'
+        overhead "[Intruso rilevato]" 50
+        pause 100
+        say "i ban thee"
+        pause 250
+        target 'lastserial'
+        pause 500
+        overhead "Hai preso il volo!" 50
+    endif
+endwhile
