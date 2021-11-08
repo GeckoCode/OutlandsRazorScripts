@@ -27,6 +27,8 @@ while not dead
     wait 2500
     if insysmsg 'sinking a ship'
         overhead 'La nave nemica sta affondando!'
+        wait 500
+        overhead 'Sei un vero pirata!'
         stop
     endif
     
