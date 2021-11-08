@@ -1,0 +1,34 @@
+# Name: Enemy Ship Sink
+# Sviluppatore: GeckoCode
+# Discord: NotGecko#4839
+# Server: UO Outlands
+# Versione: 1.0
+# Requisiti: Nessuno
+
+overhead 'Seleziona la nave da colpire' 38
+setvar 'nave'
+wait 500
+
+overhead 'I cannoni stanno per tuonare!' 50
+
+while not dead
+    say '[FireCannons'
+    wait 500
+    target 'nave'
+    wait 1000
+    
+    if insysmsg  'out of ammunition'
+        overhead '[Munizioni insufficienti]' 38
+        say '[Reload'
+        overhead 'Ricarico i cannoni!' 48
+        wait 7500
+    endif
+    
+    wait 2500
+    if insysmsg 'sinking a ship'
+        overhead 'La nave nemica sta affondando!'
+        stop
+    endif
+    
+    wait 9500
+endwhile
