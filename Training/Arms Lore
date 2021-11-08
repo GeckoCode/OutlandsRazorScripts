@@ -1,0 +1,29 @@
+# Name: Arms Lore Trainer
+# Sviluppatore: GeckoCode
+# Discord: NotGecko#4839
+# Server: UO Outlands
+# Versione: 1.0
+# Requisiti: Arma o Armatura
+
+setvar 'armsloretrainingweapon'
+wait 100
+overhead 'Seleziona un arma o armatura' 48
+wait 500
+
+while not dead
+
+    # Check - Lock Skill #
+    if skill 'armslore' >=100
+        setskill 'armslore' locked
+        overhead 'Arms Lore è completa!' 65
+        stop
+    endif
+    
+    # Check - Rise Skill # 
+    if skill 'armslore' <=100
+         hotkey 'Animal Lore'
+         waitfortarget 500
+         target 'armsloretrainingweapon'
+         pause 5000
+    endif             
+endwhile 
