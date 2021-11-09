@@ -1,0 +1,33 @@
+
+# Name: Ultimate Treasure Chest Resolver
+# Sviluppatore: GeckoCode
+# Discord: NotGecko#4839
+# Server: UO Outlands
+# Versione: 1.0
+# Requisiti: Lockpick e Remove Trap Tool
+
+sysmsg 'Treasure Chest Resolver avviato...' 65
+wait 100
+overhead 'Seleziona la cassa da aprire' 38
+setvar 'treasurechestresolver'
+wait 500
+
+# Check strumentazione #
+
+if @counttype 'IDdaInserire' 'backpack' == 0
+      overhead "[Lockpick terminati]" 28
+    pause 500
+endif
+
+if @counttype 'IDdaInserire' 'backpack' == 0
+      overhead "[Remove Trap terminati]" 28
+    pause 500
+endif
+
+###############################################
+
+while not dead
+    if insysmsg 'The world will save'
+        wait 4000
+    endif
+endwhile
