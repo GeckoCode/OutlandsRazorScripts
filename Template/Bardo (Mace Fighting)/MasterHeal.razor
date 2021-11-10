@@ -1,6 +1,37 @@
-# the idea here is to execute only 1 action per key press
+# Name: Master Heal Bardo
+# Sviluppatore: GeckoCode
+# Discord: NotGecko#4839
+# Server: UO Outlands
+# Versione: 1.0
+# Requisiti: Restock PVM Completo
 
-interrupt
+sysmsg 'NotGecko Engine avviato...' 65
+wait 500
+
+###############################################
+
+while not dead
+
+    if insysmsg 'Save in 15 secondi'
+        overhead '⌛ Save imminente ⌛'
+    endif
+
+    if poisoned or hp < maxhp
+        if findbuff 'healing'
+            overhead '⌛ Sto finendo di curarmi.. ⌛'
+        else
+            hotkey 'bandage self'
+            overhead '♥ Inizio a curarmi ♥' 60 'self'
+        endif
+    else
+        overhead '** hp 100% **' 240 'self'
+        usetype 0xe21
+    endif
+
+
+
+endwhile
+
 
 #script 'housing\rental-room-exit'
 
