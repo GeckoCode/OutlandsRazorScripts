@@ -1,9 +1,23 @@
+# Name: Mushroom
+# Sviluppatore: GeckoCode
+# Discord: NotGecko#4839
+# Server: UO Outlands
+# Versione: 1.0
+# Requisiti: Summoner Mushroom
+
 if mana = maxmana
-    overhead 'already full mana'
-    stop
+    overhead '♥ Mana Pieno ♥' 60
+    stop    
 elseif not findtype 'mushroom' 'backpack'
-    overhead 'no mushrooms!' 37
+    overhead '♥ Funghi Finiti ♥' 37
     stop
-else
+else    
     usetype 'mushroom' backpack
+    wait 500
+    overhead '♥ Hai usato un fungo magico ♥' 48    
+    
+    if insysmsg 'You must wait before'
+        overhead '⌛ Countdown.. ⌛'
+        stop
+    endif  
 endif
