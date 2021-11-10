@@ -6,19 +6,19 @@
 # Requisiti: Spyglass
 
 if @counttype '5365' 'backpack' == 0
-      overhead "Spyglass finiti" 28
+      overhead "♦ Spyglass finiti ♦" 28       
     pause 500
 endif
 
 if @counttype '5356' 'backpack' == 0
-    sysmsg "Non hai più mappe da decifrare" 28
+    sysmsg "▲ Non hai più mappe da decifrare ▲" 28
     pause 500
 endif
 
 if findtype '5365' 'backpack'
   sysmsg "trovato spyglass" 28
     if findtype '5356' 'backpack'
-        sysmsg "trovata mappa" 28
+        sysmsg "⌛ Mappa trovata ⌛" 28
 
 
     dclicktype '5365'
@@ -30,11 +30,11 @@ if findtype '5365' 'backpack'
     gumpresponse 4
     pause 2000
      if insysmsg 'You have reached the maximum' 
-       overhead 'Mappa decodificata' 20
+       overhead '♦ Mappa decodificata ♦' 20
       break
      endif 
       if insysmsg 'You do not have any spyglasses' 
-          overhead 'Non hai più spyglass' 20
+          overhead '♦ Non hai più spyglass ♦' 20
      break
     endif
      endwhile
