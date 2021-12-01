@@ -1,0 +1,30 @@
+# Name: AFK Bard Buff
+# Developer: GeckoCode
+# Discord: NotGecko#4839
+# Server: UO Outlands
+# Version: 1.0
+
+clearsysmsg
+
+while not dead
+    ##### DISCORDANCE #####
+    hotkey 'Discordance'
+    wait 200
+    target ground 1332 495 5
+    wait 10500
+    ##### PROVOCATION #####
+    hotkey 'Provocation'
+    wait 200
+    target 0x0 1332 495 5
+    wait 10500
+    ##### PEACEMAKING #####
+    hotkey 'Peacemaking'
+    wait 200
+    target 0x0 1332 495 5
+    wait 10500
+       
+    # If hidden, skip
+    if hidden
+        continue
+    endif
+endwhile
